@@ -1,0 +1,57 @@
+NORMALIZE CSS
+
+Existia antigamente um problema onde os navegadores nao normalizavam o css
+Normalize é um css que padroniza o estilo css por navegadores
+Existem vários tipos de normalize mas irei trabalhar com normalize.css
+
+https://cdnjs.com/libraries/normalize
+
+--------------------------------------------------------------
+ASSETS
+
+Dentro dessa pasta tudo que não for HTML fica ai.
+Imagens, css, Javascript.
+Coloquei o css/global.css e o js/main.js
+
+--------------------------------------------------------------
+FONTE ROBOTTO
+
+Do mesmo jeito que foi usado cdn para normalize também dá para usar em fontes
+
+Pesquisei o CDN no google fonts
+https://fonts.google.com/
+
+links da fonte
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+
+Estruturando arquivos no html:
+
+
+ <!-- Normalize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Font Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Css do site -->
+    <link rel="stylesheet" href="assets/css/global.css">
+
+ <!-- Javascript do site -->
+    <script src="assets/js/main.js"></script>
+    Esse aki ficou na parte de baixo do body
+
+
+Agora dentro do arquivo global.css:
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+

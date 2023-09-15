@@ -1,0 +1,156 @@
+- Focar o estilo de css para o mobile
+
+<section> é uma tag referente a uma parte da tela (sessão)
+
+<ol> = Ordenad List
+
+<li> = lista
+
+rem = É um tamanho relativo que muda de acordo com a resolução
+
+Usei 1 rem na classe content em seu padding
+
+
+----------------------------------------------------------
+
+Apliquei o display: grid nos styles, para formar uma tabela
+    display: grid;
+Depois o
+    grid-template-columns: 1fr 1fr;
+
+vai ter 2 colunas e cada uma com 1 fração, ou seja, 2 partes, metade metade
+
+Deixei o espaço onde fica os pokemons redondinhos no canto com um
+    border-radius: 1rem;
+E as cores do texto e do fundo brancas e verdes respectivamente com:
+    background-color: #14a06f;
+    color: white;
+
+E aumentei o tamanho do espaço com:
+    height: 100px;
+
+Ajustei o padding para:
+    padding: 2rem 1rem;
+
+----------------------------------------------------------
+
+Coloquei imagens nos li's usando o:
+     <img src="Link da imagem obtido no pokeAPI" 
+    alt="Nome do pokemon">
+
+Para padronizar e facilitar a alocação de tamanho dos itens coloquei um:
+    box-sizing: border-box;
+
+E para colocar as imagens mais ao canto dentro da tag img eu usei:
+    align-self: flex-end;
+
+----------------------------------------------------------
+
+Acabei criando uma estrutura de HTML mais robusta para por os pokemon:
+
+    <ol class="pokemons">
+            <li class="pokemon">
+                <span class="number">#001</span>
+                <span class="name">Bulbasaur</span>
+                
+                <div class="detail">
+                    <ol class="types">
+                        <li class="type">grass</li>
+                        <li class="type">poison</li>
+                    </ol>
+
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+                        alt="Bulbasaur">
+                </div>
+               
+            </li>
+        </ol>
+
+E coloquei muita coisa a mais no css:
+
+.pokemons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #49D0B0;
+}
+
+Diminui tamanho da imagem
+.pokemon .detail img{
+    max-width: 100%;
+    height: 70px; 
+}
+
+Adicionei numero e diminui e ajustei ele a direita
+.pokemon .number {
+    color:  #000;
+    opacity: .3;
+    text-align: right; 
+    font-size: .625rem;
+}
+
+.pokemon .name{
+    color: #FFF;
+    margin-bottom: .25rem;
+}
+
+.pokemon .detail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.pokemon .detail .types {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.pokemon .detail .types .type{
+    background-color: #61E1CA;
+    color: white;
+    padding: .25rem .5rem ;
+    margin: .25rem 0;
+    font-size: .625rem;
+    border-radius: 1rem;
+}
+
+------------------------------------------------------------
+Media Query é um conjunto de css que vai ser aplicado de acordo com o tamanho da tela
+
+É tipo um IF, se tal condição acontecer tal coisa muda no css
+
+Esse aqui por exemplo é feito para ajustar a resolução da tela
+Caso a tela fique com mais de 992px o tamanho do .content(onde está o conteudo) fixa nos 992px
+@media screen and (min-width: 992px) {
+   .content{
+    max-width: 992px;
+    margin: 0 auto;
+   }
+  }
+
+Fiz o mesmo com os espacinhos onde ficam os pokemons
+Caso a tela chegue a tal tamanho ela vai abrigar 4 pokemons na linha
+@media screen and (min-width: 992px) {
+    .pokemons{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+   }
+
+Caso ele chegue também a um tamanho especifico ele vai abrigar 3
+
+
+Essa tecnica é boa pois reescreve pouco CSS é deixa seu layout responsivo
+
+------------------------------------------------------------

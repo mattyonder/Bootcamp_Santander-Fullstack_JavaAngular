@@ -1,0 +1,54 @@
+Para dar suporte a internet, se instala o pacote http-server pelo npm:
+
+npm install -g http-server
+
+Obs: -g significa que ele vai ser instalado globalmente
+
+Se eu digitar html:5 ele criar uma estrutura de arquivo html
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        Isso significa que o site é responsivo
+
+Para startar um servidor http na minha rede local
+    http-server ./
+
+Pode dar um erro no windows ao ele bloquear o script do node.js
+Por isso fui ao powershell e rodei o seguinte comando:
+
+    Set-ExecutionPolicy
+
+Após ele rodei outro: 
+    RemoteSigned
+
+E confirmei com Sim
+
+//////////////////////////////////////////////////////////////////////////////////
+
+Como o css é em cascata ( Folha de estilo em cascata )
+Ele vai adotando as configurações que foram colocadas por 
+
+//////////////////////////////////////////////////////////////////////////////////
+
+Uma boa prática é aplicar primeiro o estilo(no head)
+Depois o texto e no final aplico o comportamento
+
+Primeiro o site carrega o conteudo depois esu comportamento
+
+window = janela do browser
+
+document = arquivo atual
+
+    <script>
+        const btnTeste = document.getElementById("btnTeste");
+        btnTeste.addEventListener("click", function() {
+            console.log("Clicou no botão");
+        });
+        console.log(btnTeste);
+
+    </script>
+
+O que eu fiz aqui:
+    Criei um script que pega um elemento do documento pelo seu id, no caso btnTeste
+    E adiciona um evento nele, por meio de seu click, e esse evento é realizar uma function
+    Sendo essa função, mostrar no console que ele clicou no botão
+
+//////////////////////////////////////////////////////////////////////////////////

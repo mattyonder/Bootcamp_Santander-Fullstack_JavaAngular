@@ -1,0 +1,72 @@
+
+URL Path e Method
+Requisições HTTP
+
+URL: https://pokeapi.co/api/v2/pokemon
+    ${IP}/{PATH = Caminho de identificação do recurso}
+
+O path é o api/v2/pokemon
+
+CRUD - CREATE UPDATE LIST DELETE
+
+POST - Inserir pokemon
+PUT - Atualizar pokemon
+GET - Obter pokemon
+DELETE - Deletar pokemon
+
+---------------------------------------------------------------------
+
+Path Params e Query String
+
+Path Params é eu buscar pela url msm, pelo caminho dos dados:
+
+https://pokeapi.co/api/v2/pokemon/3/ - Pegando o JSON do Venosaur
+
+Já a query string é um exemplo de Where dos bancos de dados, onde eu faço uma requisição com base em um parâmetro
+
+https://pokeapi.co/api/v2/pokemon?type=grass&name=i
+
+?type=grass&name=i
+
+A query string começa do ?
+
+---------------------------------------------------------------------
+
+Headers
+
+Metadados das requisições
+Configurações das requisições
+
+Request Headers
+    Configuração da API
+
+    x-orig-accept-language: 
+
+    pt-BR,pt;
+    q=0.9,en;
+    q=0.8,en-GB;
+    q=0.7,en-US;
+    q=0.6
+
+    Pela configuração da API ele pegou e colocou o pt-br como linguagem principal
+
+Response Headers
+
+---------------------------------------------------------------------
+
+Dependendo do tipo de requisição que eu usar eu tenho um corpo de método que é o BODY
+
+Corpo da requisição, usado no Post, Put
+
+content-type: application/json
+
+Request Body
+{
+    "name": "teste"
+}
+
+STATUS CODE
+São as familias de codigo, que servem como resposta para requisições
+200 = Ok
+201 - Created
+204 - No conted

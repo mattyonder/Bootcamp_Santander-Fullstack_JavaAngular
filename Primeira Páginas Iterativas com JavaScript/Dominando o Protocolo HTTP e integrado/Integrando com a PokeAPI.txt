@@ -1,0 +1,131 @@
+Para fazer as requisições HTTP usei o Fetch API, que já está integrado nos browsers mais modernos
+
+Processamento assincrono, é um resultado que não vai ser obtido de imediato.
+
+--------------------------------------------------------------
+
+Se eu escrevo um debugger, eu estou colocando o breakpoint de um debbug
+O que facilita muito na hora de debugar pelo navegador
+    .then((jsonBody) => {
+        debugger
+        console.log(jsonBody)
+    })
+
+Dá pra inserir um bloco de caracteres no Javascript usando uma string one ``
+
+return `
+        <li class="pokemon" >
+            <span class="number">#001</span>
+            <span class="name">${pokemon.name}</span>
+
+            <div class="detail">
+                <ol class="types">
+                    <li class="type">Grass</li>
+                    <li class="type">Poison</li>
+                </ol>
+
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+                    alt=${pokemon.name}>
+            </div>
+
+        </li>
+    `   
+
+
+pokemonList.innerHTML += <li>Teste</li>
+
+Eu estou colocando um HTML mas não em formato de texto e sim em objeto.
+
+
+No fim, para por todos os pokemons como html fiz o seguinte:
+
+    Dei um ID para a tag HTML onde ficam os pokemons chamado de pokemonList:
+        
+        <ol id="pokemonList" class="pokemons">
+            <!-- Pokemons here -->
+        </ol>
+
+    Depois uma função Javascript que forma o bloco de HTML :
+
+        function convertPokemonToLi (pokemon) {
+            return `
+                <li class="pokemon" >
+                    <span class="number">#001</span>
+                    <span class="name">${pokemon.name}</span>
+
+                    <div class="detail">
+                        <ol class="types">
+                            <li class="type">Grass</li>
+                            <li class="type">Poison</li>
+                        </ol>
+
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" 
+                            alt=${pokemon.name}>
+                    </div>
+
+                </li>
+            `      
+        }
+
+    Apos isso criei uma variavel dentro do main.js chamada pokemonList que pega um elemento HTML pelo seu id:
+        
+        const pokemonList = document.getElementById('pokemonList')
+
+    E dentro do meu fetch coloquei outro .then que após conseguir os pokemons por meio de promisses,
+    ele adiciona um HTML no pokemonList vindo do método convertPokemonToLi:
+
+        .then((pokemons) => {
+
+        for (let index = 0; index < pokemons.length; index++) {
+
+            const pokemon = pokemons[index];
+            pokemonList.innerHTML += convertPokemonToLi(pokemon);
+
+        }
+    })
+
+--------------------------------------------------------------
+
+Para ficar organizado foi criado um outro arquivo js, chamado poke-api.js
+Esse arquivo envolve todas as requisições que envolvem o PokeApi
+
+O for que eu tinha feito anteriormente foi substituido por um map:
+
+pokeApi.getPokemons().then((pokemons = []) => {
+    pokemonList.innerHTML += pokemons.map(convertPokemonToLi).join('')
+}) 
+    
+--------------------------------------------------------------
+
+Manipulando múltiplas requisições em paralelo
+
+Depois de obter meu jsBody eu pedi para fazer uma lista de promisses com detalhes dos pokemon
+    .then((pokemons) => pokemons.map((pokemon) => fetch(pokemon.url)))
+
+
+Recaptulação
+
+// Foi feita uma requisição HTTP para buscar a lista de pokemons
+    pokeApi.getPokemons().then((pokemons = []) => {
+// Com o map recebendo o metodo de conversão, transformou os pokemons em uma lista de HTML
+// E concatenou essa lista com o '' e juntou em uma string só que virou um HTML
+    pokemonList.innerHTML += pokemons.map(convertPokemonToLi).join('')
+}) 
+
+--------------------------------------------------------------
+
+Convertendo o modelo do PokeAPI para nosso modelo
+
+Para melhorar o código, em vez de pegar os dados diretamente da API
+Foi criado uma classe pokemon com os dados que eu selecionei da API
+
+Aqui eu pego o primeiro elemento de uma lista types por meio do []
+Estou atribuindo a type o 1° elemento da lista
+    const [type] = types
+
+
+--------------------------------------------------------------
+
+Adicionando os tipos de pokemons dinamicamente
+
+Uma parada que não sabia era que dava pra colocar a primeira letra do texto como maiuscula por meio de Css
