@@ -1,0 +1,6 @@
+-----------------------------------------------------------------
+A Diferença entre Elements e Web Components
+
+Elementos = Tags HTML
+
+Web Components = Tags criadas por outras tags
