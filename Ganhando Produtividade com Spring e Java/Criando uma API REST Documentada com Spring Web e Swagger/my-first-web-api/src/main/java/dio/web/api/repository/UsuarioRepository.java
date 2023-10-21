@@ -1,6 +1,6 @@
-package dio.my.web.api.repository;
+package dio.web.api.repository;
 
-import dio.my.web.api.model.Usuario;
+import dio.web.api.model.Usuario;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

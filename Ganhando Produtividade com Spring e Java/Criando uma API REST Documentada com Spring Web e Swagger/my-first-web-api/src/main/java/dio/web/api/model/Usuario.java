@@ -1,4 +1,4 @@
-package dio.my.web.api.model;
+package dio.web.api.model;
 
 public class Usuario {
     private Integer id;
@@ -11,7 +11,7 @@ public class Usuario {
     }
     @Override
     public String toString() {
-        return "User{" +
+        return "Usuario:" +
                 "login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 '}';
