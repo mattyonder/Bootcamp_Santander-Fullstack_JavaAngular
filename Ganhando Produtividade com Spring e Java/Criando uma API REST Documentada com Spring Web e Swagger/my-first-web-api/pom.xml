@@ -12,7 +12,7 @@
 	<artifactId>my-first-web-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>my-first-web-api</name>
-	<description>First web api with Spring Boot</description>
+	<description>My first web api with Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
